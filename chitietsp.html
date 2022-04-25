@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICMusic</title>
+    <link rel="stylesheet" href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/css/bootstrap.min.css">
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/css/index.css"></script>
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/js/jquery-3.6.0.min.js"></script>
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/js/bootstrap.min.js"></script>
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/js/jquery.validate.js"></script>
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/js/index.js"></script>
+    <style>
+        * {
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 100%;
+        }
+        
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        header h1 {
+            position: absolute;
+            top: 30px;
+            left: 70px;
+            font-size: 25px;
+            color: blueviolet;
+        }
+        
+        header {
+            height: 100px;
+            background-color: rgb(245, 248, 248);
+            position: relative;
+            color: white;
+        }
+        
+        header form {
+            position: absolute;
+            bottom: 30px;
+            right: 10px;
+        }
+        
+        .title {
+            float: left;
+            padding-right: 10px;
+            color: blueviolet;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        header input {
+            background-color: rgb(203, 219, 215);
+            border: 1px solid slateblue;
+            padding: 5px;
+            color: blueviolet;
+            border-radius: 10px 0px 0px 10px;
+        }
+        
+        header button {
+            background-color: rgb(203, 219, 215);
+            border: 1px solid slateblue;
+            padding: 5px;
+            color: blueviolet;
+            background-color: cornflowerblue;
+            border-radius: 0px 10px 10px 0px;
+        }
+        
+        .menu-parent {
+            position: absolute;
+            left: 300px;
+            bottom: 0px;
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-parent a {
+            color: blueviolet;
+            padding: 3px 10px;
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        
+        .menu-parent a:hover {
+            color: rgb(56, 9, 224);
+            text-decoration: underline;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        
+        .menu-child {
+            display: none;
+            float: left
+        }
+        
+        .menu-child a {
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        
+        .menu-parent li:hover .menu-child {
+            display: block;
+            position: absolute;
+            margin-left: -40px;
+            background-color: rgb(206, 229, 230);
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .grid-container {
+            width: 100%;
+            display: grid;
+            gap: 3px;
+            grid-template-columns: 22 auto auto;
+            background-color: #2196F3;
+            padding: 1px;
+        }
+        
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 2px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: rgb(230, 217, 217);
+            padding: 20px 20px;
+            text-align: center;
+        }
+        
+        h5 {
+            color: rgb(52, 8, 211)
+        }
+        
+        .error {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="page-header">
+        <img style="width: 50px;" src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/logo.jpeg" alt="">
+        <h1>ICMusic</h1>
+        <div>
+            <form action="" style="padding-bottom: 10px;">
+                <input type="search" name="txtSearch" id="txtSearch" placeholder="Search ..." size="20">
+                <button>Search</button>
+            </form>
+        </div>
+
+        <ul class="menu-parent">
+            <li><a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/trangchu.html">Trang Chủ</a></li>
+            <li><a href="">Sản Phẩm</a>
+                <ul class="menu-child">
+                    <li><a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/chitietsp.html">Chi Tiết Sản Phẩm</a></li>
+                    <li><a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/dssp.html">Danh Sách Sản Phẩm</a></li>
+
+                </ul>
+            </li>
+
+            <li><a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/GioiThieu.html">Giới thiệu</a>
+            </li>
+
+            <li>
+                <a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/DKthanhvien.html">Đăng Ký</a>
+            </li>
+            <li>
+                <a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/sitemap.html">More</a>
+            </li>
+        </ul>
+
+
+
+    </header>
+
+
+
+
+    <img width="100%" src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/piano-body1.png" alt="">
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <button style="background-color:rgb(192, 9, 9);color:white ;">MÔ TẢ SẢN PHẨM</button>
+    <div class="content" style="margin-left: 20px; ">
+        <h4 style="text-align: center;">ĐÀN PIANO ĐIỆN ROLAND RP - 30: ĐỒNG HÀNH CÙNG TRẺ TRONG NHỮNG BƯỚC ĐI ĐẦU TIÊN ĐẾN VỚI ÂM NHẠC
+        </h4>
+        <img style="width: 1089px;margin-left: 50px;" src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/piano-roland.png" alt="">
+        <p>Trong thời đại công nghệ của smartphone, games, TV,... bố mẹ rất khó để định hướng cho trẻ những bước đi đầu tiên trên con đường âm nhạc. Vì vậy, thật khó để động viên trẻ chơi Piano và càng khó hơn để hướng trẻ trở thành một nghệ sỹ Piano thực
+            thụ.
+        </p>
+        <p>Nắm bắt được những bất cập ấy, Roland đã trình diện thị trường nhạc cụ model RP-30. Đây là cây đàn piano điện dành cho người chơi ở mức độ nhập môn, dễ chơi với mức giá hợp lý. Roland RP-30 giải quyết nỗi lo của bạn và giúp bạn dễ dàng mang âm
+            nhạc về chính ngôi nhà của mình. Khung đàn bằng gỗ sẽ trang hoàng cho ngôi nhà bạn trong một khoảng thời gian rất dài.</p>
+        <p>Piano điện Roland RP-30 cho phép bạn lựa chọn 15 tone nhạc tùy chỉnh để tăng thêm nguồn cảm hứng. Chất lượng âm thanh Roland RP-30 được nhiều người công nhận và đánh giá cao, lý tưởng cho việc luyện tập và học đàn. Ngoài ra, những chức năng hỗ
+            trợ việc luyện tập giúp cho việc học đàn trở nên thư thái và hứng thú hơn bao giờ hết.
+
+        </p>
+        <br>
+        <h3 style="color:red">Piano điện Roland RP-30: Ưu điểm & thế mạnh</h3>
+        <br>
+        <p>Chất lượng âm thanh piano Roland RP-30 được nhiều người công nhận và đánh giá cao, lí tưởng cho việc luyện tập và học đàn.
+            <ul>
+                <li>Phím đàn với độ nhạy và độ chính xác cao giúp cải thiện kĩ năng của trẻ.
+                </li>
+                <li>Được trang bị ba bàn đạp để chơi những giai điệu cổ điển một cách chuẩn xác.
+                </li>
+                <li>Hộp đàn bằng gỗ tô điểm cho vẻ sang trọng khiến đàn trở thành một vật trang trí đẹp mắt cho ngôi nhà bạn.
+                </li>
+                <li>Bộ 15 tone nhạc được lựa chọn kĩ lưỡng để tạo động lực cho trẻ luyện tập mỗi ngày.
+                </li>
+                <li>Chức năng sử dụng headphone cho phép luyện tập mọi lúc mà không phải làm phiền những người xung quanh.
+                </li>
+            </ul>
+        </p>
+        <img style="width: 1089px;margin-left: 50px; " src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/piano-roland2.png" alt="">
+        <br>
+        <h3 style="color:red"><br>
+            <h3 style="color:red">Piano điện Roland RP-30: Ưu điểm & thế mạnh</h3>
+            <br></h3>
+        <p>RP-30 được nhiều chuyên gia âm nhạc khuyên dùng dành cho các bé mới tập đàn. RP-30 được trang bị nhiều tính năng vượt trội:</p>
+        <br>
+        <ul>
+            <li>Đàn thiết kế gọn nhẹ, phù hợp với chiều cao, độ tuổi các bé.</li>
+            <li>Đàn có chế độ tự học giúp các bé dễ dàng luyện tập tại nhà để nâng cao trình độ.</li>
+            <li>Phím đàn nhẹ dễ sử dụng, phù hợp với cả các bé còn nhỏ tuổi.</li>
+            <li>Đàn tích hợp 15 tone nhạc tùy chỉnh phong phú.</li>
+
+        </ul>
+        <br>
+        <h5>Đàn Piano điện Roland RP-30 thiết kế nhỏ gọn, sang trọng</h5>
+        <br>
+        <p>Cây đàn Piano điện Roland RP-30 là giải pháp giúp các bé làm quen với âm nhạc tốt nhất. Cây đàn đáp ứng mọi nhu cầu về học tập cũng như giải trí của bé, hơn nữa cây đàn được thiết kế nhỏ gọn sang trọng còn giúp tiết kiệm diện tích, tăng thêm sự
+            sang trọng cho không gian ngôi nhà của bạn.</p>
+        <img style="width: 1089px;margin-left: 50px; " src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/piano-roland3.png" alt="">
+        <br>
+        <br>
+        <h5>Roland RP-30: Tone nhạc Piano chuẩn xác, âm thanh chân thực êm ái, giai điệu ấm áp</h5>
+        <br>
+        <p>Với những trẻ bắt đầu học đàn, thì âm thanh tiếng đàn rất quan trọng. Cây đàn Roland RP-30 phù hợp sử dụng cho các bé bắt đầu học đàn. Một cây đàn có âm thanh tốt giúp bé có những kiến thức đầu tiên về âm nhạc đúng chuẩn nhất, tạo tiền đề phát
+            triển sau này ngày một đi lên.
+
+        </p>
+        <p>Chẳng có gì gây chán nản bằng những giai điệu nhạt nhẽo thiếu sức sống khi mới tập chơi piano. Nhưng khi người chơi tiếp cận với những tone nhạc ấn tượng cùng những phím đàn nhanh nhạy phía dưới ngón tay, họ sẽ cảm nhận được cây đàn và sẽ hứng
+            thú hơn trong việc luyện tập.</p>
+        <p>Mặc dù có mức giá phù hợp cho người mới tập chơi nhưng cây Roland RP30 vẫn được trang bị những tone nhạc giàu cảm xúc kế thừa từ những mẫu đàn cao cấp đi trước và được rất nhiều người đánh giá cao. Những tone nhạc chuẩn xác còn rất lí tưởng cho
+            việc luyện tập hằng ngày và cho cả những bước tiến trong quá trình phát triển kĩ năng của trẻ nhỏ.</p>
+        <p>Chiếc đàn Piano điện Roland RP-30 sở hữu công nghệ âm thanh SuperNatural Piano cho âm thanh đầy màu sắc, chân thật và tự nhiên. Phím đàn và bàn đạp của đàn Piano điện Roland RP-30 có độ nhạy và chính xác cao giúp cải thiện chức năng đánh đàn của
+            trẻ.
+        </p>
+        <p>Đặc biệt đàn được trang bị 3 bàn đạp khác nhau sustain, soft và sostenuto để các bé có thể chơi các bản nhạc cổ điển đích thực.</p>
+        <img style="width: 1089px;margin-left: 50px; " src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/piano-roland4.png" alt="">
+        <br>
+        <br>
+        <h5>Roland RP-30: Hộp đàn bằng gỗ khiến cho ngôi nhà của bạn càng thêm nổi bật</h5>
+        <br>
+        <p>Có thể bạn đã cân nhắc mua về cho ngôi nhà bạn một cây đàn piano cổ điển nhưng lại quyết định không làm vậy vì cây đàn sẽ tốn nhiều không gian trong nhà khiến cho ngôi nhà bạn trở nên chật chội. Với thiết kế nhỏ gọn và kín đáo cùng hộp đàn gỗ
+            đàn cao cấp cây Roland RP30 sẽ trở thành một vật trang trí hoàn hảo vừa thu hút ánh nhìn vừa kích thích ngón tay của người xem.</p>
+        <br><br>
+        <h5>Roland RP-30: Bàn phím và bàn đạp với độ nhạy cao hỗ trợ cho con bạn trong việc cải thiện kĩ thuật chơi đàn</h5>
+        <br>
+        <p>Trong suốt quá trình phát triển từ những nốt nhạc đơn lẻ chơi tới một màn diễn độc tấu và xa hơn nữa, một cây đàn piano để tạo cảm hứng cho trẻ nhỏ mỗi khi trẻ đạt được bước tiến là điều cần thiết.
+
+        </p>
+        <br>
+        <p>Với chất lượng âm thanh và bộ cảm biến được kế thừa từ những mẫu đàn cao cấp trước, cây RP-30 có thể biến người mới bắt đầu trở thành một nhạc sĩ nhờ bàn phím siêu nhạy, búa gõ chính xác, bàn phím trắng ngà đem đến mọi sắc thái nhạc mỗi khi trẻ
+            chạm vào phím đàn, cổ vũ cho trẻ chơi nhạc với đam mê và tìm ra giai điệu của bản thân mình. Cây RP30 cũng sẽ bám sát quá trình phát triển kĩ năng chơi đàn của trẻ cùng với bàn đạp sustain, bàn đạp soft và bàn đạp sostenuto để có thể đạt sự
+            chính xác cao khi chơi những bài nhạc cổ điển.
+
+        </p>
+        <img src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/piano-roland5.png" alt="" style="width: 1089px;margin-left: 50px; ">
+        <br>
+        <h5>Roland RP-30: Hộp đàn bằng gỗ khiến cho ngôi nhà của bạn càng thêm nổi bật</h5>
+        <br>
+        <p>Có thể bạn đã cân nhắc mua về cho ngôi nhà bạn một cây đàn piano cổ điển nhưng lại quyết định không làm vậy vì cây đàn sẽ tốn nhiều không gian trong nhà khiến cho ngôi nhà bạn trở nên chật chội. Với thiết kế nhỏ gọn và kín đáo cùng hộp đàn gỗ
+            đàn cao cấp cây Roland RP30 sẽ trở thành một vật trang trí hoàn hảo vừa thu hút ánh nhìn vừa kích thích ngón tay của người xem.</p>
+        <br>
+        <h5>Roland RP-30: Bàn phím và bàn đạp với độ nhạy cao hỗ trợ cho con bạn trong việc cải thiện kĩ thuật chơi đàn</h5>
+        <br>
+        <p>Trong suốt quá trình phát triển từ những nốt nhạc đơn lẻ chơi tới một màn diễn độc tấu và xa hơn nữa, một cây đàn piano để tạo cảm hứng cho trẻ nhỏ mỗi khi trẻ đạt được bước tiến là điều cần thiết.</p>
+        <br>
+        <p>Với chất lượng âm thanh và bộ cảm biến được kế thừa từ những mẫu đàn cao cấp trước, cây RP-30 có thể biến người mới bắt đầu trở thành một nhạc sĩ nhờ bàn phím siêu nhạy, búa gõ chính xác, bàn phím trắng ngà đem đến mọi sắc thái nhạc mỗi khi trẻ
+            chạm vào phím đàn, cổ vũ cho trẻ chơi nhạc với đam mê và tìm ra giai điệu của bản thân mình. Cây RP30 cũng sẽ bám sát quá trình phát triển kĩ năng chơi đàn của trẻ cùng với bàn đạp sustain, bàn đạp soft và bàn đạp sostenuto để có thể đạt sự
+            chính xác cao khi chơi những bài nhạc cổ điển.
+
+        </p>
+        <br>
+        <h5>Roland RP-30: Chế độ âm lượng tùy chỉnh và chơi đàn với headphone</h5>
+        <br>
+        <p>Bạn sẽ không biết khi nào thì nguồn cảm hứng sẽ đến, nhưng âm thanh từ những cây đàn cổ điển lại quá lớn và có thể làm phiền những người xung quanh nên bạn không thể thể hiện nguồn cảm hứng ấy ra. Nhưng với cây Roland RP30, trẻ có thể tùy thích
+            chơi đàn bất cứ lúc nào nhờ âm lượng loa có thể tùy chỉnh và chức năng phát âm qua headphone giúp đàn không trở nên quá ồn ào. Ngoài ra đàn còn được trang bị một máy đánh nhịp giúp giữ cho trẻ tập trung và đảm bảo không gì có thể làm xao nhãng
+            quá trình luyện tập của trẻ.</p>
+        <img src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/piano-roland6.png" alt="" style="width: 1089px;margin-left: 50px; ">
+        <br>
+        <h5>Có nên mua Piano điện Roland RP-30? Giá đàn?</h5>
+        <br>
+        <p>Sử dụng đàn Piano điện RP-30 còn giúp bạn tiết kiệm được một khoản tiền, không phải thường xuyên lên dây cót như đàn Piano cơ, không phải lo lắng bảo quản đàn vào những khi thời tiết giao mùa nóng quá hoặc ẩm quá.</p>
+        <p>Hiện tại mức giá cho một chiếc đàn Piano RP-30 là khoảng dưới 20 triệu đồng. Một mức giá phù hợp cho một mẫu đàn có nhiều tính năng hiện đại, cùng kiểu dáng thiết kế hoàn hảo đến từ thương hiệu nổi tiếng.
+
+        </p>
+        <p>Trên đây chúng tôi vừa chia sẻ đến các bạn những ưu điểm của cây đàn điện Piano Roland Roland RP-30. Qua những thông tin trên chắn các bạn đã hiểu tại sao Roland RP-30 lại được nhiều phụ huynh tin dùng đến như vậy. Chúc các bạn chọn được cho các
+            bé một cây đàn ưng ý phù hợp với kinh tế gia đình.</p>
+        <br>
+        <h5>Mua đàn Piano điện Roland RP-30 giá rẻ ở đâu?</h5>
+        <br>
+        <p>Hãy đến ngay Showroom Nhạc cụ ICMusic trên toàn quốc để có được những trải nghiệm chơi Piano điện Roland RP-30 thực tế. Ngoài ra bạn sẽ được các chuyên viên tư vấn của chúng tôi hướng dẫn và giới thiệu chi tiết hơn về sản phẩm.</p>
+        <br>
+        <img src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/piano-roland7.png" alt="" style="width: 1089px;margin-left: 50px; ">
+        <br>
+        <p style="text-align: center;">Đại diện Nhạc cụ ICMusic chụp ảnh lưu niệm cùng ông Tetsuji Iyoda - giám đốc nhà máy, và phụ trách thị trường Châu Á của Roland. </p>
+        <br>
+        <h5>Cam kết từ Nhạc cụ Tiến Đạt</h5>
+        <ul>
+            <li>Nhạc cụ chính hãng, nguyên đai nguyên kiện</li>
+            <li>Phát hiện hàng giả bồi thường 200%
+            </li>
+            <li>Đội ngũ KTV chuyên nghiệp, năng động và am hiểu về nhạc cụ
+            </li>
+            <li>Tư vấn model phù hợp, giá tốt, tiết kiệm chi phí đáng kể.
+            </li>
+            <li>Giao đàn toàn quốc. BH chính hãng, hỗ trợ kỹ thuật 24/7.
+            </li>
+            <li>Free vận chuyển các quận nội thành HN và TP. HCM bán kính 10 Km.
+            </li>
+            <li>Mua trả góp 3,6,9,12 tháng
+            </li>
+        </ul>
+        <p style="text-align: right;font-weight: bold;">Liên hệ ngay để nhận báo giá Piano điện Roland RP 30 tốt nhất từ ICMusic</p>
+    </div>
+
+    <footer>
+        <div class="row">
+            <div class="col-md-3 col-xs-6 col-sm-3">
+                <h5>Cập nhật thông tin khuyến mãi</h5>
+                <input type="email" placeholder="Email của bạn" width="15px">
+                <button style="background-color: yellow;">Đăng Kí</button>
+                <br>
+                <br>
+                <h6>Kết nối với chúng tôi</h6>
+                <div class="row">
+
+
+
+                    <div class="col"></div>
+                    <div class="col"><button style="background-image: url(../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/icon_facebook.png);width: 31px;
+                        height: 30px;
+                        float: left;"></button></div>
+                    <div class="col"><button style="background-image: url(../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/icon_youtube.png);width: 31px;
+                        height: 30px;
+                        float: left;"></button></div>
+                    <div class="col"><button style="background-image: url(../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/icon_instagram.png);width: 31px;
+                        height: 30px;
+                        float: left;"></button></div>
+                    <div class="col"><button style="background-image: url(../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/icon_zalo.png);width: 31px;
+                        height: 30px;
+                        float: left;"></button></div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h5>HỖ TRỢ KHÁCH HÀNG</h5>
+                <p>
+                    <br> Gọi mua hàng:
+                    <p style="color:red">0913.081.172 HN, 0901.826.553 HCM </p><br> Khiếu nại, Bảo hành: (028) 710 88 333 <br> Thời gian phục vụ: 8h-22h <br> Email: info@vietthuong.vn <br> DMCA.com Protection Status <br> <br>
+
+
+            </div>
+            <div class="col-md-3">
+                <h5>VỀ CHÚNG TÔI</h5> <br> Giới thiệu công ty <br> Điều khoản sử dụng <br> Hệ thống cửa hàng <br> Liên hệ - Góp ý <br> <br> </p>
+            </div>
+            <div class="col-md-3">
+                <h5>HỆ THỐNG WEBSITE</h5>
+                <p> <br> Hướng dẫn mua hàng <br> Chính sách bảo hành Chính sách đổi trả <br> Mua trả góp <br> Quy định Giao hàng <br> Kích hoạt bảo hành</p>
+            </div>
+        </div>
+        <br>
+        <p>© 2007 - 2018 Công Ty Cổ Phần TM DV SX ICMusic / Địa chỉ: 386 CMT8, P.10, Q.3, TPHCM / GPKD số 0304757232 do sở Kế hoạch Đầu tư TPHCM cấp ngày 01/01/2007. Email: info@vietthuong.vn.</p>
+
+    </footer>
+
+
+
+</body>
+
+</html>

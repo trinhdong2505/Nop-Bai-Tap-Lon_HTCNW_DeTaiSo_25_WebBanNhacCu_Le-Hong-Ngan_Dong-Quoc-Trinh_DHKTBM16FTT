@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICMusic</title>
+    <link rel="stylesheet" href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/css/bootstrap.min.css">
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/css/index.css"></script>
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/js/jquery-3.6.0.min.js"></script>
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/js/bootstrap.min.js"></script>
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/js/jquery.validate.js"></script>
+    <script src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/js/index.js"></script>
+
+    <style>
+        * {
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 100%;
+        }
+        
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        header h1 {
+            position: absolute;
+            top: 30px;
+            left: 70px;
+            font-size: 25px;
+            color: blueviolet;
+        }
+        
+        header {
+            height: 100px;
+            background-color: rgb(245, 248, 248);
+            position: relative;
+            color: white;
+        }
+        
+        header form {
+            position: absolute;
+            bottom: 30px;
+            right: 10px;
+        }
+        
+        .title {
+            float: left;
+            padding-right: 10px;
+            color: blueviolet;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        header input {
+            background-color: rgb(203, 219, 215);
+            border: 1px solid slateblue;
+            padding: 5px;
+            color: blueviolet;
+            border-radius: 10px 0px 0px 10px;
+        }
+        
+        header button {
+            background-color: rgb(203, 219, 215);
+            border: 1px solid slateblue;
+            padding: 5px;
+            color: blueviolet;
+            background-color: cornflowerblue;
+            border-radius: 0px 10px 10px 0px;
+        }
+        
+        .menu-parent {
+            position: absolute;
+            left: 300px;
+            bottom: 0px;
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-parent a {
+            color: blueviolet;
+            padding: 3px 10px;
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        
+        .menu-parent a:hover {
+            color: rgb(56, 9, 224);
+            text-decoration: underline;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        
+        .menu-child {
+            display: none;
+            float: left
+        }
+        
+        .menu-child a {
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        
+        .menu-parent li:hover .menu-child {
+            display: block;
+            position: absolute;
+            margin-left: -40px;
+            background-color: rgb(206, 229, 230);
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .grid-container {
+            width: 100%;
+            display: grid;
+            gap: 3px;
+            grid-template-columns: 22 auto auto;
+            background-color: #2196F3;
+            padding: 1px;
+        }
+        
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 2px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: rgb(230, 217, 217);
+            padding: 20px 20px;
+            text-align: center;
+        }
+        
+        h3 {
+            color: rgb(45, 17, 122)
+        }
+        
+        .error {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="page-header">
+        <img style="width: 50px;" src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/logo.jpeg" alt="">
+        <h1>ICMusic</h1>
+        <div>
+            <form action="" style="padding-bottom: 10px;">
+                <input type="search" name="txtSearch" id="txtSearch" placeholder="Search ..." size="20">
+                <button>Search</button>
+            </form>
+        </div>
+
+        <ul class="menu-parent">
+            <li><a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/trangchu.html">Trang Chủ</a></li>
+            <li><a href="">Sản Phẩm</a>
+                <ul class="menu-child">
+                    <li><a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/chitietsp.html">Chi Tiết Sản Phẩm</a></li>
+                    <li><a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/dssp.html">Danh Sách Sản Phẩm</a></li>
+
+                </ul>
+            </li>
+
+            <li><a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/GioiThieu.html">Giới thiệu</a>
+            </li>
+
+            <li>
+                <a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/DKthanhvien.html">Đăng Ký</a>
+            </li>
+            <li>
+                <a href="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/sitemap.html">More</a>
+            </li>
+        </ul>
+
+
+
+    </header>
+
+
+
+
+    <img width="100%" src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/piano-body1.png" alt="">
+    <br>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="content" style="margin-left: 20px;">
+        <h3>Giới thiệu Công Ty</h3>
+        <h3 style="text-align: center;">CHÀO MỪNG ĐẾN VỚI ICMusic SHOP – NƠI MUA SẮM NHẠC CỤ UY TÍN HÀNG ĐẦU TẠI VIỆT NAM</h3>
+        <img src="../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/gioi-thieu-cong-ty.jpg" style="margin-left: 28%;" alt="">
+        <p>
+            Công Ty Cổ Phần TM-SX-DV ICMusic là nhà phân phối nhạc cụ, thiết bị âm thanh, ánh sáng chuyên nghiệp và giáo dục đào tạo các bộ môn âm nhạc hàng đầu tại Việt Nam. <br> <br> Nhằm mang đến sự tiện lợi cho khách hàng có nhu cầu mua sắm online,
+            Việt Thương Music đã cho ra đời website mua sắm trực tuyến vietthuongshop.vn. <br> <br> Với hàng ngàn sản phẩm đa dạng từ nhạc cụ, phụ kiện và các thiết bị âm thanh ánh sáng, Việt Thương sẽ đáp ứng mọi nhu cầu mua sắm của bạn. Tất cả những
+            sản phẩm đều đến từ các thương hiệu nổi tiếng hàng đầu trên thế giới và phân phối chính thức và độc quyền tại Việt Nam thông qua hệ thống công ty Việt Thương. <br> <br> Website thương mại điện tử <b>www.vietthuongshop.vn</b> cung cấp những
+            sản phẩm theo các nhóm: <br>
+        </p>
+        <ul>
+            <li>Acoustic Piano: Steinway & Sons, Boston, Essex, Kawai, Kohler & Campbell, Samick. <br></li>
+            <li>Digital Piano & Keyboard: Roland, Casio, Kawai. <br>
+                <li>Guitar & phụ kiện: Taylor, Fender, Jackson, Charvel, Grestch, EVH, Squier, Takamine, Cordoba, Tanglewood, Greg Bennett, Deviser, Lazer, D’Addario, Elixir, Xvive… <br></li>
+                <li> Amp/effect: Boss, Roland, Fender, EVH, Fishman, NUX, Marshall. <br></li>
+                <li>Drum và bộ gõ: Pearl, Premier, Remo, Meinl, Zildjian, Roland, Nino, Lazer… <br></li>
+                <li>Kèn & Sáo: Suzuki, Selmer, Conn & Selmer, Nuvo. <br></li>
+                <li>Âm thanh & phòng thu: D.A.S, Soundking, Bose, M-Audio, Tascam, Rode, Roland, Audix, Allen & Heath, Zoom, Adam, Inter-M… <br></li>
+        </ul>
+        <br>
+        <p>
+            Nếu bạn đang tìm kiếm một món nhạc cụ đầu tiên cho mình hay bổ sung thêm những thiết bị âm nhạc mới cho bộ sưu tập của mình, Việt Thương Shop sẽ cung cấp cho bạn các sản phẩm tốt nhất và mới nhất trên thị trường. Hãy để đội ngũ tư vấn viên giàu kinh nghiệm
+            của chúng tôi hỗ trợ bạn chọn được sản phẩm phù hợp một cách nhanh chóng nhất qua kênh chat trực tuyến hoặc
+        </p>
+        <br>
+        <b>Hotline Mua Hàng 1800 6715 (Miễn phí) - 1800 6715</b> <br>
+        <p>Với mục tiêu tạo ra những trải nghiệm mua sắm trực tuyến tuyệt vời, ICMusic luôn nỗ lực không ngừng nhằm nâng cao chất lượng dịch vụ.</p> <br>
+        <b>Tại sao khách hàng nên mua sắm online tại ICMusic:</b>
+        <ul>
+            <li>Hơn 70 đại lý lớn nhỏ tại tỉnh thành Việt Nam</li>
+            <li>Cam kết đem lại những lợi ích tốt nhất cho khách hàng</li>
+            <li>Việt Thương Music School với hệ thống giáo trình theo tiêu chuẩn Quốc Tế</li>
+            <li>Dịch vụ cho thuê nhạc cụ, âm thanh ánh sáng lớn nhất</li>
+            <li>100% hàng chính hãng.</li>
+            <li>Đa dạng sự lựa chọn với hơn 5000 sản phẩm.</li>
+            <li>Ship hàng toàn quốc, giao hàng tận nơi</li>
+            <li>Miễn phí giao hàng trong khu vực nội thành.</li>
+            <li>Được tư vấn miễn phí khi đến mua hàng trực tiếp tại showroom.</li>
+            <li>Nhiều phương thức thanh toán linh động khi mua sản phẩm.</li>
+            <li>Tất cả sản phẩm đều có chính sách và điều khoản bảo hành.</li>
+            <li>Cam kết bán đúng giá niêm yết và thường xuyên có chương trình khuyến mãi hấp dẫn.</li>
+        </ul>
+        <br><br>
+        <b>Thông tin về công ty:</b><br>
+        <b>CÔNG TY CỔ PHẦN TM-DV-SX ICMusic</b>
+        <ul>
+            <li>GPKD số 0304757232 do sở Kế hoạch Đầu tư TPHCM cấp ngày 01/01/2007</li>
+            <li>Địa chỉ: 386 CMT8, P.10, Q.3, TPHCM</li>
+            <li>Gọi Mua Hàng: 1800 6715 (Miễn Phí) – 1800 6715</li>
+            <li>Khiếu nại, Góp ý, bảo Hành: 028 710 88 333</li>
+            <li>Thời gian phục vụ: 08:00g – 22:00g</li>
+            <li>Email: info@vietthuong.com.vn</li>
+        </ul>
+
+
+    </div>
+
+
+    <footer>
+        <div class="row">
+            <div class="col-md-3 col-xs-6 col-sm-3">
+                <h5>Cập nhật thông tin khuyến mãi</h5>
+                <input type="email" placeholder="Email của bạn" width="15px">
+                <button style="background-color: yellow;">Đăng Kí</button>
+                <br>
+                <br>
+                <h6>Kết nối với chúng tôi</h6>
+                <div class="row">
+
+
+
+                    <div class="col"></div>
+                    <div class="col"><button style="background-image: url(../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/icon_facebook.png);width: 31px;
+                        height: 30px;
+                        float: left;"></button></div>
+                    <div class="col"><button style="background-image: url(../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/icon_youtube.png);width: 31px;
+                        height: 30px;
+                        float: left;"></button></div>
+                    <div class="col"><button style="background-image: url(../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/icon_instagram.png);width: 31px;
+                        height: 30px;
+                        float: left;"></button></div>
+                    <div class="col"><button style="background-image: url(../Nop-Bai-Tap-Lon_HTCNW_DeTaiSo_25_WebBanNhacCu_Le-Hong-Ngan_Dong-Quoc-Trinh_DHKTBM16FTT/img/icon_zalo.png);width: 31px;
+                        height: 30px;
+                        float: left;"></button></div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h5>HỖ TRỢ KHÁCH HÀNG</h5>
+                <p>
+                    <br> Gọi mua hàng:
+                    <p style="color:red">0913.081.172 HN, 0901.826.553 HCM </p><br> Khiếu nại, Bảo hành: (028) 710 88 333 <br> Thời gian phục vụ: 8h-22h <br> Email: info@vietthuong.vn <br> DMCA.com Protection Status <br> <br>
+
+
+            </div>
+            <div class="col-md-3">
+                <h5>VỀ CHÚNG TÔI</h5> <br> Giới thiệu công ty <br> Điều khoản sử dụng <br> Hệ thống cửa hàng <br> Liên hệ - Góp ý <br> <br> </p>
+            </div>
+            <div class="col-md-3">
+                <h5>HỆ THỐNG WEBSITE</h5>
+                <p> <br> Hướng dẫn mua hàng <br> Chính sách bảo hành Chính sách đổi trả <br> Mua trả góp <br> Quy định Giao hàng <br> Kích hoạt bảo hành</p>
+            </div>
+        </div>
+        <br>
+        <p>© 2007 - 2018 Công Ty Cổ Phần TM DV SX ICMusic / Địa chỉ: 386 CMT8, P.10, Q.3, TPHCM / GPKD số 0304757232 do sở Kế hoạch Đầu tư TPHCM cấp ngày 01/01/2007. Email: info@vietthuong.vn.</p>
+
+    </footer>
+
+
+
+</body>
+
+</html>
